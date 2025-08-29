@@ -67,14 +67,13 @@ body {
     flex-direction: column; /* Your original flex-direction */
     align-items: center;
     gap: 20px;
-    padding: 20px; /* Padding inside the section once opened */
+    padding: 20px 0px; /* Padding inside the section once opened */
     border-top: 1px solid #e0e0e0; /* Separator between header and content */
 }
 
 /* --- Your Existing Flashcard Styles (with minor adjustments for integration) --- */
 .flashcard {
-    width: 600px;
-    max-width: 90%;
+    width: 95%;
     perspective: 1000px;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);

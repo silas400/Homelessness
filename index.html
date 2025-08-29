@@ -11,13 +11,13 @@
 
     <main class="app-main-content">
 
-        <section class="flashcard-section is-collapsed" id="section-defining-homelessness">
+        <section class="flashcard-section" id="section-defining-homelessness">
     <div class="section-header">
         <h1>Defining Homelessness & Its Scale</h1>
     </div>
     <div class="flashcard-container" style="display: none;">
         <div class="flashcard">
-            <div class="front">
+            <div class="front" >
                 <p>Homelessness is lacking safe, stable housing.</p>
             </div>
             <div class="back">
@@ -204,7 +204,7 @@
     <div class="flashcard-container" style="display: none;">
         <div class="flashcard">
             <div class="front">
-                <p>One person’s long-term homelessness can cost $40k yearly.</p>
+                <p>One person’s homelessness can cost $40k yearly.</p>
             </div>
             <div class="back">
                 <p>When someone is homeless for a long time and struggles with serious mental health issues, frequent hospital visits, emergency care, and other costly services can add up to about $40,000 each year—often covered by taxpayers. Providing stable housing and support can lower these costs and help people rebuild their lives.</p>
@@ -351,6 +351,8 @@
             // --- Section Toggling Logic ---
             const sectionHeaders = document.querySelectorAll('.section-header');
 
+            
+
             sectionHeaders.forEach(header => {
                 const section = header.closest('.flashcard-section');
                 const flashcardContainer = section.querySelector('.flashcard-container');
@@ -373,8 +375,13 @@
                 });
             });
 
+            sectionHeaders[0].classList.remove('is-collapsed')
+            sectionHeaders[0].classList.add('is-expanded')
+
             // --- Flashcard Flipping and Source Toggling (using Event Delegation) ---
             const allFlashcards = document.querySelectorAll('.flashcard');
+
+            allFlashcards[0].classList.add("flipped")
 
             allFlashcards.forEach(flashcard => {
                 // Listener for clicking the flashcard itself to flip it
