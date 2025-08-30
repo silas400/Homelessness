@@ -112,12 +112,11 @@ main {display: flex; justify-content: center; align-items: center; flex-directio
     overflow: hidden; /* Ensures content stays within rounded corners */
 }
 
-.flashcard p {margin: 0px}
+.flashcard p {margin: 0px;}
 
 
 .flashcard .front {
-    padding: 10px;
-    font-weight: 600;
+    font-weight: bold;
     color: #333;
     font-size: 14px;
     transition: color 0.3s;
@@ -256,6 +255,10 @@ main {display: flex; justify-content: center; align-items: center; flex-directio
         padding: 15px;
     }
 
+    #progressBarContainer {
+        height: 5px;
+    }
+
     .flashcard {
         width: 100%; /* Take full width on small screens */
     }
@@ -266,6 +269,11 @@ main {display: flex; justify-content: center; align-items: center; flex-directio
 
     .flashcard .front {
         font-size: 12px;
+    }
+
+    .front p {
+        padding-left: 30px;
+        padding-right: 30px;
     }
 
     .flashcard .back {

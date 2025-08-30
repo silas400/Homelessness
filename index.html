@@ -358,6 +358,7 @@
     <script>
 
         let openedCards = 0;
+        let lowestFontSize = 14;
 
         function updateProgress(totalCards, flashcard) {
             openedCards++;
@@ -443,6 +444,51 @@
                 }
             });
         });
+
+        // Select all elements with the class "flashCardContainer"
+        document.querySelectorAll(".flashcard-container").forEach(card => {
+            card.style.display = "flex"
+        });
+        
+        // Loop through all .front divs
+        document.querySelectorAll(".front").forEach(frontDiv => {
+            
+            let p = frontDiv.querySelector("p");
+
+            let style = window.getComputedStyle(p);
+            let fontSize = parseFloat(style.fontSize);
+
+            // Get padding of the paragraph
+            let paddingLeft = parseFloat(style.paddingLeft) || 0;
+            let paddingRight = parseFloat(style.paddingRight) || 0;
+
+            // Available width inside the container
+            let availableWidth = frontDiv.clientWidth;
+
+            console.log(availableWidth)
+
+            // Shrink until the text fits in that available space
+            while (p.clientWidth >= availableWidth) {
+                fontSize -= 0.3;
+                if (fontSize < lowestFontSize){
+                    lowestFontSize = fontSize
+                }
+                
+                p.style.fontSize = fontSize + "px";
+            }
+        });
+
+        document.querySelectorAll('.back p').forEach(p => p.style.fontSize = lowestFontSize + "px");
+        document.querySelectorAll('.front p').forEach(p => p.style.fontSize = lowestFontSize + "px");
+        document.querySelectorAll('.source-link a').forEach(a => a.style.fontSize = (lowestFontSize - 2) + "px");
+
+                // Select all elements with the class "flashCardContainer"
+        document.querySelectorAll(".flashcard-container").forEach(card => {
+            card.style.display = "none";
+        }); 
+
+            
+
     </script>
 
 </body>
