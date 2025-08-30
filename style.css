@@ -6,6 +6,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     overflow-y: scroll; /* always show scrollbar */
+    box-sizing: border-box;
 }
 
 main {display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 20px;}
@@ -271,7 +272,7 @@ main {display: flex; justify-content: center; align-items: center; flex-directio
         font-size: 12px;
     }
 
-    .front p {
+    .front{
         padding-left: 30px;
         padding-right: 30px;
     }

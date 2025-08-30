@@ -359,7 +359,6 @@
 
         let openedCards = 0;
         let lowestFontSize = 14;
-
         function updateProgress(totalCards, flashcard) {
             openedCards++;
             let checkMark = document.createElement("p")
@@ -456,6 +455,7 @@
             let p = frontDiv.querySelector("p");
 
             let style = window.getComputedStyle(p);
+            let frontDivStyle = window.getComputedStyle(frontDiv)
             let fontSize = parseFloat(style.fontSize);
 
             // Get padding of the paragraph
@@ -463,9 +463,11 @@
             let paddingRight = parseFloat(style.paddingRight) || 0;
 
             // Available width inside the container
-            let availableWidth = frontDiv.clientWidth;
+            let availableWidth = frontDiv.getBoundingClientRect().width - parseFloat(frontDivStyle.paddingLeft) - parseFloat(frontDivStyle.paddingRight);
 
+            console.log(frontDiv)
             console.log(availableWidth)
+            console.log(style.width)
 
             // Shrink until the text fits in that available space
             while (p.clientWidth >= availableWidth) {
@@ -478,9 +480,14 @@
             }
         });
 
-        document.querySelectorAll('.back p').forEach(p => p.style.fontSize = lowestFontSize + "px");
+        //If the lowest font size was changed from its default value... resizing happened, and we need to adjust font sizes. 
+        if (lowestFontSize != 14){
+            document.querySelectorAll('.back p').forEach(p => p.style.fontSize = lowestFontSize + "px");
         document.querySelectorAll('.front p').forEach(p => p.style.fontSize = lowestFontSize + "px");
         document.querySelectorAll('.source-link a').forEach(a => a.style.fontSize = (lowestFontSize - 2) + "px");
+        }
+
+        
 
                 // Select all elements with the class "flashCardContainer"
         document.querySelectorAll(".flashcard-container").forEach(card => {
