@@ -9,7 +9,10 @@
 </head>
 <body>
 
-    <main class="app-main-content">
+    <main>
+            
+
+    <div class="app-main-content">
 
         <section class="flashcard-section" id="section-defining-homelessness">
     <div class="section-header">
@@ -344,9 +347,26 @@
 
 
 
-    </main>
+</div>
+
+</main>
+
+    <div id="progressBarContainer">
+        <div id="progressBar"></div>
+    </div>
 
     <script>
+
+        let openedCards = 0;
+
+        function updateProgressBar(totalCards) {
+        openedCards++;
+        let progress = (openedCards / totalCards) * 100;
+  
+        // Apply progress to your bar (example assumes width percentage)
+        document.getElementById("progressBar").style.width = progress + "%";
+}
+
         document.addEventListener('DOMContentLoaded', function() {
             // --- Section Toggling Logic ---
             const sectionHeaders = document.querySelectorAll('.section-header');
@@ -379,6 +399,8 @@
             // --- Flashcard Flipping and Source Toggling (using Event Delegation) ---
             const allFlashcards = document.querySelectorAll('.flashcard');
 
+            const totalCards = allFlashcards.length;
+
             allFlashcards.forEach(flashcard => {
                 // Listener for clicking the flashcard itself to flip it
                 flashcard.addEventListener('click', function(event) {
@@ -386,6 +408,11 @@
                     if (!event.target.classList.contains('source') && !event.target.classList.contains('close') && !event.target.closest('.sourceBox')) {
                         this.classList.toggle('flipped');
 
+                    }
+
+                    if (!event.currentTarget.classList.contains("opened")) {
+                        event.currentTarget.classList.add("opened")
+                        updateProgressBar(totalCards)
                     }
                 });
 

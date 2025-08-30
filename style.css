@@ -2,10 +2,36 @@ body {
     font-family: 'Segoe UI', sans-serif;
     background: #f0f2f5;
     margin: 0;
-    padding: 30px;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-y: scroll; /* always show scrollbar */
+}
+
+main {display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 20px;}
+
+
+ #progressBarContainer {
+    width: 100vw;
+    background-color: #ddd;
+    height: 15px;
+    border-radius: 10px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0%;   /* adjust space from bottom */
+     z-index: 9999;   /* make sure it’s on top of everything so its size does not get messed with. even the natural vertical scrollbar on pages wont mess with it. */
+     pointer-events: none;  /* lets clicks pass through */
+}
+
+
+
+#progressBar {
+    height: 100%;
+    width: 0%; /* Initial width of the progress bar */
+    background-color: blue;
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out; /* Animation effect */
 }
 
 /* Main app content wrapper to give sections a max-width */
@@ -71,6 +97,7 @@ body {
     align-items: center;
     gap: 20px;
     padding: 20px 0px; /* Padding inside the section once opened */
+    padding-bottom: 10px;
     border-top: 1px solid #e0e0e0; /* Separator between header and content */
 }
 
