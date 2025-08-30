@@ -13,7 +13,7 @@
 
         <section class="flashcard-section" id="section-defining-homelessness">
     <div class="section-header">
-        <h1>Defining Homelessness & Its Scale</h1>
+        <h1>Defining Homelessness</h1>
     </div>
     <div class="flashcard-container" style="display: none;">
         <div class="flashcard">
@@ -54,7 +54,7 @@
 
 <section class="flashcard-section is-collapsed" id="section-causes-of-homelessness">
     <div class="section-header">
-        <h1>Causes & Drivers of Homelessness</h1>
+        <h1>Causes & Drivers</h1>
     </div>
     <div class="flashcard-container" style="display: none;">
         <div class="flashcard">
@@ -95,7 +95,7 @@
 
 <section class="flashcard-section is-collapsed" id="section-health-and-safety-impacts">
     <div class="section-header">
-        <h1>Health & Safety Impacts</h1>
+        <h1>Health & Safety</h1>
     </div>
     <div class="flashcard-container" style="display: none;">
         <div class="flashcard">
@@ -133,7 +133,7 @@
         </div>
         <div class="flashcard">
             <div class="front">
-                <p>1 in 5 homeless Americans has a severe mental illness.</p>
+                <p>20% of homeless Americans face severe mental illness.</p>
             </div>
             <div class="back">
                 <p>Researchers estimate that over 20% of people experiencing homelessness in the U.S. are living with severe mental illness, such as schizophrenia, bipolar disorder, or major depression. Without consistent treatment and stable housing, they face significantly higher risks of incarceration, suicide, and premature death. Limited access to coordinated mental health care means many cycle between emergency rooms, jails, and the streets, despite their conditions being treatable with proper support.</p>
@@ -169,12 +169,12 @@
 
 <section class="flashcard-section is-collapsed" id="section-justice-system-intersection">
     <div class="section-header">
-        <h1>The Justice System Intersection</h1>
+        <h1>Justice System</h1>
     </div>
     <div class="flashcard-container" style="display: none;">
         <div class="flashcard">
             <div class="front">
-                <p>Tens of thousands leave jail and become homeless.</p>
+                <p>Thousands leave jail only to become homeless.</p>
             </div>
             <div class="back">
                 <p>Every year, over 50,000 people go straight from jail or prison into homeless shelters. Many others end up sleeping outside or in unstable situations before finding a safe place to stay. Being homeless right after incarceration makes it harder to find work, stay healthy, and avoid reoffending. This shows how the lack of stable housing after jail fuels the cycle between homelessness and incarceration.</p>
@@ -185,7 +185,7 @@
         </div>
         <div class="flashcard">
             <div class="front">
-                <p>Unsheltered homeless face more policing and incarceration.</p>
+                <p>Unsheltered homeless face more policing.</p>
             </div>
             <div class="back">
                 <p>A California Policy Lab study found that people living without shelter reported an average of 21 police encounters in just six months—ten times more than those in shelters. They were also nine times more likely to have spent at least one night in jail during that time. This shows how living outside greatly increases the risk of criminal justice involvement compared to being in a shelter.</p>
@@ -199,7 +199,7 @@
 
 <section class="flashcard-section is-collapsed" id="section-economic-costs-and-solutions">
     <div class="section-header">
-        <h1>Economic Costs & Proven Solutions</h1>
+        <h1>Economic Costs & Solutions</h1>
     </div>
     <div class="flashcard-container" style="display: none;">
         <div class="flashcard">
@@ -292,7 +292,7 @@
 
 <section class="flashcard-section is-collapsed" id="section-systemic-issues-and-demographics">
     <div class="section-header">
-        <h1>Systemic Issues & Demographics</h1>
+        <h1>Systemic Issues</h1>
     </div>
     <div class="flashcard-container" style="display: none;">
         <div class="flashcard">
@@ -375,13 +375,9 @@
                 });
             });
 
-            sectionHeaders[0].classList.remove('is-collapsed')
-            sectionHeaders[0].classList.add('is-expanded')
 
             // --- Flashcard Flipping and Source Toggling (using Event Delegation) ---
             const allFlashcards = document.querySelectorAll('.flashcard');
-
-            allFlashcards[0].classList.add("flipped")
 
             allFlashcards.forEach(flashcard => {
                 // Listener for clicking the flashcard itself to flip it

@@ -31,10 +31,11 @@ body {
     padding: 20px;
     cursor: pointer;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     transition: background-color 0.2s ease;
     border-radius: 15px 15px 0 0; /* Rounded top corners */
+    position: relative;
 }
 
 .section-header:hover {
@@ -43,17 +44,19 @@ body {
 
 .section-header h1 { /* Targeting the h1 inside the section header */
     margin: 0;
-    font-size: 1.8rem; /* Adjusted for section title */
+    font-size: 18px; /* Adjusted for section title */
     color: white; /* Ensure text is white */
 }
 
 /* Accordion Icon for Sections */
 .section-header::after {
     content: '+'; /* Plus icon by default for collapsed state */
-    font-size: 2rem;
+    font-size: 20px;
     line-height: 1;
     transition: transform 0.3s ease;
     font-weight: normal;
+    position: absolute;
+    left: 93%;
 }
 
 .flashcard-section.is-expanded .section-header::after {
@@ -89,7 +92,7 @@ body {
     padding: 10px;
     font-weight: 600;
     color: #333;
-    font-size: 1.1rem;
+    font-size: 14px;
     transition: color 0.3s;
     background: white;
     cursor: pointer;
@@ -100,14 +103,40 @@ body {
     justify-content: center;
 }
 
+.flashcard .front{
+    padding: 10px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+    transition: color 0.3s;
+    background: white;
+    cursor: pointer;
+    border-radius: 15px; /* Ensure rounded corners */
+    min-height: 60px; /* Give some space */
+    display: flex; /* Helps vertically center text */
+    align-items: center;
+    justify-content: center;
+}
+
+.flashcard .front::after {
+    content: '+'; /* Plus icon by default for collapsed state */
+    font-size: 20px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+    font-weight: normal;
+    position: absolute;
+    left: 93%;
+}
+
 .flashcard .back {
     padding: 20px;
     padding-top: 0px;
+    padding-bottom: 0px;
     cursor: pointer;
     /* transition: transform 0.6s; Removed as we're not doing a 3D flip now, just display toggle */
     backface-visibility: hidden; /* Still good to have if you re-introduce 3D transforms */
     position: relative;
-    font-size: 1.05rem;
+    font-size: 14px;
     display: none; /* Controlled by JS toggleCard */
     color: #444;
     background: #fefefe;
@@ -116,7 +145,7 @@ body {
 
 .source-link {display: none; justify-content: right;}
 
-.source-link a {color: #007bff; text-decoration: none; padding: 10px; text-align: right; font-weight: bold;}
+.source-link a {color: #007bff; text-decoration: none; padding: 10px; text-align: right; font-weight: bold; font-size: 12px;}
 
 .flashcard.flipped .back {
     display: block; /* Shows the back content */
@@ -130,6 +159,14 @@ body {
     font-weight: bold;
     color: #2c3e50;
     border-radius: 15px 15px 0 0; /* Keep top rounded, but square bottom when expanded */
+    min-height: 0px;
+    padding-bottom: 10px;
+    padding-top: 15px;
+}
+
+.flashcard.flipped .front::after {
+    content: '-'; /* Minus icon when section is expanded */
+    transform: rotate(180deg);
 }
 
 .source, .sound {
@@ -202,15 +239,18 @@ body {
     }
 
     .section-header h1 {
-        font-size: 1.5rem;
+        font-size: 15px;
     }
 
-    .flashcard .front,
-    .flashcard .back {
-        font-size: 14px;
-        padding: 15px;
-        padding-bottom: 5px;
+    .flashcard .front {
+        font-size: 12px;
     }
+
+    .flashcard .back {
+        font-size: 12px;
+    }
+
+    .source-link a {font-size: 10px;}
 
     .source, .sound {
         font-size: 20px;
