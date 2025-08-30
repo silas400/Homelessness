@@ -130,20 +130,15 @@ main {display: flex; justify-content: center; align-items: center; flex-directio
     justify-content: center;
 }
 
-.flashcard .front{
-    padding: 10px;
-    font-weight: 600;
-    color: #333;
-    font-size: 14px;
-    transition: color 0.3s;
-    background: white;
-    cursor: pointer;
-    border-radius: 15px; /* Ensure rounded corners */
-    min-height: 60px; /* Give some space */
-    display: flex; /* Helps vertically center text */
-    align-items: center;
-    justify-content: center;
+@keyframes bounceZoom {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.5); }
+  70%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
 }
+
+.checkMark {position: absolute; top: 2%; left: 2%; color: green; font-size: 25px; animation: bounceZoom 0.5s ease;}
+
 
 .flashcard .front::after {
     content: '+'; /* Plus icon by default for collapsed state */
