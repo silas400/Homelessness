@@ -482,7 +482,8 @@
 
         //If the lowest font size was changed from its default value... resizing happened, and we need to adjust font sizes. 
         if (lowestFontSize != 14){
-            document.querySelectorAll('.back p').forEach(p => p.style.fontSize = lowestFontSize + "px");
+        document.querySelectorAll(".section-header h1").forEach(h1 => h1.style.fontSize = (lowestFontSize + 2) + "px");
+        document.querySelectorAll('.back p').forEach(p => p.style.fontSize = lowestFontSize + "px");
         document.querySelectorAll('.front p').forEach(p => p.style.fontSize = lowestFontSize + "px");
         document.querySelectorAll('.source-link a').forEach(a => a.style.fontSize = (lowestFontSize - 2) + "px");
         }
